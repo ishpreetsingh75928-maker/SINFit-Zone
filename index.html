@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINFitzone Gym</title>
+    <link rel="stylesheet" href="feeproject.css">
+    <script src="feeproject.js"></script>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="toggle-btns">
+                <button id="loginToggle"
+                    onclick="showLogin()">
+                    Login
+                </button>
+                <button id="signupToggle"
+                    class="active"
+                    onclick="showSignup()">
+                    Signup
+                </button>
+            </div>
+            <div class="form-box"
+                id="loginForm">
+                <h2>Login</h2>
+
+                <input type="email"
+                    placeholder="Enter Email">
+
+                <input type="password"
+                    placeholder="Enter Password">
+
+                <button class="submit-btn"
+                    onclick="loginUser()">
+                    Login
+                </button>
+
+            </div>
+
+            <div class="form-box active"
+                id="signupForm">
+
+                <h2>Create Account</h2>
+
+                <input type="text"
+                    placeholder="Enter Name">
+
+                <input type="email"
+                    placeholder="Enter Email">
+
+                <input type="password"
+                    placeholder="Create Password">
+
+                <button class="submit-btn"
+                    onclick="signupUser()">
+                    Signup
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="mainWebsite"
+        style="display:none;">
+
+        <header>
+
+            <a href="#"
+                class="logo">
+                SINFitzone
+            </a>
+
+            <nav>
+
+                <a href="#home">Home</a>
+
+                <a href="#about">About</a>
+
+                <a href="#programs">Programs</a>
+
+                <a href="#bmi-section">BMI Calculator</a>
+                
+                <a href="#membership-section">Membership Plans</a>
+
+                <a href="#timer-section">Workout Timer</a>
+
+                <a href="#contact">Contact</a>
+
+            </nav>
+
+            <button onclick="toggleTheme()"
+                class="theme-btn">
+                Toggle Theme
+            </button>
+
+        </header>
+
+        <section class="hero"
+            id="home">
+
+            <h2 id="typing"></h2>
+
+            <p>
+                Join SINFitzone and transform yourself into your best version
+            </p>
+
+            <button onclick="showMessage()">
+                Join Now
+            </button>
+
+        </section>
+
+        <section id="about">
+
+            <h2>About Us</h2>
+
+            <p style="
+            font-size:20px;
+            max-width:700px;
+            margin:auto;
+            line-height:1.8;
+            ">
+                Welcome to SINFitzone Gym 💪 where fitness meets dedication.
+            </p>
+
+            <h1 id="members"
+                style="
+                font-size:70px;
+                margin-top:30px;
+                color:red;
+                ">
+                0+
+            </h1>
+
+            <p style="font-size:22px;">
+                Happy Members
+            </p>
+
+        </section>
+
+        <section id="programs">
+
+            <h2>Our Programs</h2>
+
+            <div class="programs">
+
+                <div class="card">
+
+                    <h3>Weight Training</h3>
+
+                    <p>
+                        Build strength and muscles.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Cardio</h3>
+
+                    <p>
+                        Burn calories and stay fit.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Yoga</h3>
+
+                    <p>
+                        Relax your mind and body.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="bmi-section">
+
+            <h2>BMI Calculator</h2>
+
+            <div class="bmi-box">
+
+                <input type="number"
+                    id="height"
+                    placeholder="Enter Height in CM">
+
+                <input type="number"
+                    id="weight"
+                    placeholder="Enter Weight in KG">
+
+                <br>
+
+                <button onclick="calculateBMI()">
+                    Calculate BMI
+                </button>
+
+                <h3 id="bmi-result"></h3>
+
+            </div>
+
+        </section>
+
+        <section id="membership-section">
+
+            <h2>Membership Plans</h2>
+
+            <div class="plan-container">
+
+                <div class="plan-card">
+
+                    <h3>Basic</h3>
+
+                    <h1>₹999</h1>
+
+                    <p>1 Month Access</p>
+
+                    <button onclick="planAlert('Basic')">
+                        Choose
+                    </button>
+
+                </div>
+
+                <div class="plan-card">
+
+                    <span class="badge">
+                        Popular
+                    </span>
+
+                    <h3>Premium</h3>
+
+                    <h1>₹2499</h1>
+
+                    <p>3 Months Access</p>
+
+                    <button onclick="planAlert('Premium')">
+                        Choose
+                    </button>
+
+                </div>
+
+                <div class="plan-card">
+
+                    <h3>Elite</h3>
+
+                    <h1>₹7999</h1>
+
+                    <p>1 Year Access</p>
+
+                    <button onclick="planAlert('Elite')">
+                        Choose
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="timer-section">
+
+            <h2>Workout Timer</h2>
+
+            <p style="
+            font-size:20px;
+            margin-bottom:30px;
+            color:#ccc;
+            ">
+                Track your workout sessions with precision
+            </p>
+
+            <div class="timer-box">
+
+                <h1 id="timer">
+                    00:00
+                </h1>
+
+                <button onclick="startTimer()">
+                    Start
+                </button>
+
+                <button onclick="pauseTimer()">
+                    Pause
+                </button>
+
+                <button onclick="resetTimer()">
+                    Reset
+                </button>
+
+            </div>
+
+        </section>
+        <footer id="contact">
+
+            <div style="
+            display:flex;
+            justify-content:space-between;
+            flex-wrap:wrap;
+            gap:40px;
+            max-width:1200px;
+            margin:auto;
+            text-align:left;
+            ">
+
+                <div style="flex:1; min-width:250px;">
+
+                    <h1 style="
+                    color:red;
+                    margin-bottom:20px;
+                    font-size:38px;
+                    ">
+                        SINFitzone
+                    </h1>
+
+                    <p style="
+                    color:#ccc;
+                    line-height:1.8;
+                    font-size:16px;
+                    ">
+                        Transform your body, mind, and lifestyle with
+                        professional training programs and a motivating
+                        fitness environment.
+                    </p>
+
+                </div>
+
+                <div style="flex:1; min-width:200px;">
+
+                    <h3 style="
+                    color:white;
+                    margin-bottom:20px;
+                    ">
+                        Quick Links
+                    </h3>
+
+                    <p>
+                        <a href="#home"
+                        style="
+                        color:#ccc;
+                        text-decoration:none;
+                        line-height:2;
+                        ">
+                            Home
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="#about"
+                        style="
+                        color:#ccc;
+                        text-decoration:none;
+                        line-height:2;
+                        ">
+                            About
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="#programs"
+                        style="
+                        color:#ccc;
+                        text-decoration:none;
+                        line-height:2;
+                        ">
+                            Programs
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="#timer-section"
+                        style="
+                        color:#ccc;
+                        text-decoration:none;
+                        line-height:2;
+                        ">
+                            Workout Timer
+                        </a>
+                    </p>
+
+                </div>
+
+                <!-- CONTACT -->
+
+                <div style="flex:1; min-width:250px;">
+
+                    <h3 style="
+                    color:white;
+                    margin-bottom:20px;
+                    ">
+                        Contact Info
+                    </h3>
+
+                    <p style="
+                    color:#ccc;
+                    line-height:2;
+                    ">
+                        📍 Chandigarh, India
+                    </p>
+
+                    <p style="
+                    color:#ccc;
+                    line-height:2;
+                    ">
+                        📞 +91 98765 43210
+                    </p>
+
+                    <p style="
+                    color:#ccc;
+                    line-height:2;
+                    ">
+                        ✉ support@sinfitzone.com
+                    </p>
+
+                </div>
+            </div>
+
+            <div style="
+            border-top:1px solid rgba(255,255,255,0.1);
+            margin-top:40px;
+            padding-top:20px;
+            text-align:center;
+            color:#888;
+            font-size:15px;
+            ">
+
+                © 2026 SINFitzone Gym 
+
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
